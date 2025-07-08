@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 15.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ja"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;title&gt;インタラクティブTikTokゴルフ戦略ガイド&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;!-- Chosen Palette: Calm Harmony (Stone, Slate, Amber) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;!-- Application Structure Plan: The SPA is designed as an interactive "Creator's Dashboard" with tab-based navigation (Home, Viral Strategy, Content Creation, Persona Design, Script Builder). This task-oriented structure breaks down the dense report into actionable, explorable modules, moving beyond the original linear format. The goal is to guide the user through a logical workflow from high-level strategy to specific script creation, making the information more engaging and practical. The centerpiece is the interactive "Script Builder" which allows users to apply the report's concepts directly. --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;!-- Visualization &amp; Content Choices: Report Info -&gt; Goal -&gt; Viz/Method -&gt; Interaction -&gt; Justification. 1. Overall Strategy -&gt; Inform -&gt; Donut Chart (Chart.js) -&gt; Static display -&gt; Provides a quick, visual summary of key success factors on the dashboard. 2. Persona Types -&gt; Compare -&gt; Bar Chart (Chart.js) + Interactive Cards (HTML/CSS/JS) -&gt; Click cards to update chart/text -&gt; Allows users to easily compare persona characteristics and see detailed descriptions. 3. Vlog Structure -&gt; Organize -&gt; Interactive Timeline (HTML/CSS/JS) -&gt; Click steps to reveal info -&gt; Transforms a linear text description into a more engaging, step-by-step exploration of the storytelling format. 4. Script Blueprints -&gt; Apply -&gt; Dynamic Content Generation (JS) -&gt; User selects theme, JS builds script -&gt; This is the core interactive tool, turning passive reading of scripts into an active creation process, which is the ultimate goal for the user. --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>font-family: 'Inter', 'Noto Sans JP', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>background-color: #f8fafc; /* slate-50 */</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>.nav-link {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>transition: all 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>border-bottom: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>.nav-link.active, .nav-link:hover {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>border-bottom-color: #f59e0b; /* amber-500 */</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>color: #1e293b; /* slate-800 */</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>.content-section {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>.content-section.active {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>margin-right: auto;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>max-height: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>@media (min-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>height: 350px;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>.tab-button.active {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>background-color: #f59e0b;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="text-slate-700"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;div class="container mx-auto px-4 py-8 max-w-6xl"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;header class="text-center mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2"&gt;TikTokゴルフ動画 成功戦略ダッシュボード&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-slate-500"&gt;1万再生を超えるレビュー動画制作のためのインタラクティブガイド&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;nav class="mb-8 border-b border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;ul class="flex justify-center flex-wrap space-x-4 md:space-x-8 -mb-px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;li&gt;&lt;a href="#home" class="nav-link inline-block p-4 text-slate-500 font-medium"&gt;ダッシュボード&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;li&gt;&lt;a href="#viral" class="nav-link inline-block p-4 text-slate-500 font-medium"&gt;バイラル戦略&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;li&gt;&lt;a href="#content" class="nav-link inline-block p-4 text-slate-500 font-medium"&gt;コンテンツ制作&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;li&gt;&lt;a href="#persona" class="nav-link inline-block p-4 text-slate-500 font-medium"&gt;ペルソナ設計&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;li&gt;&lt;a href="#builder" class="nav-link inline-block p-4 text-slate-500 font-medium"&gt;台本ビルダー&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- Section: Home --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;section id="home" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h2 class="text-2xl font-bold text-slate-800 mb-4"&gt;ようこそ、未来のゴルフインフルエンサーへ&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mb-4"&gt;このダッシュボードは、あなたのゴルフ施設レビュー動画を「バズる」コンテンツへと昇華させるための戦略拠点です。TikTokでは、単に良い施設を紹介するだけでは不十分です。視聴者の心を一瞬で掴み、共感を呼び、そしてあなた自身のファンになってもらうための「設計図」が必要です。上のナビゲーションから各戦略を探求し、1万再生の壁を突破しましょう。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="grid md:grid-cols-2 gap-8 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="text-xl font-bold text-slate-800 mb-4 text-center"&gt;成功する動画の構成要素&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm text-slate-500 mb-4 text-center"&gt;成功する動画は、これらの要素が絶妙なバランスで組み合わさっています。特に「物語」と「ペルソナ」がコンテンツの核となります。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="chart-container max-w-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;canvas id="successComponentsChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="font-bold text-lg text-slate-800 mb-2"&gt;&#x1F4C8; バイラル戦略&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-slate-600 text-sm"&gt;最初の3秒で視聴者の指を止めさせ、アルゴリズムに愛されるためのテクニックを学びます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="font-bold text-lg text-slate-800 mb-2"&gt;&#x1F3AC; コンテンツ制作&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-slate-600 text-sm"&gt;視聴者が感情移入する「物語」の作り方と、プロ級の映像をスマホで撮影する技術を解説します。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="font-bold text-lg text-slate-800 mb-2"&gt;&#x1F3AD; ペルソナ設計&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-slate-600 text-sm"&gt;「誰が」発信するかが重要な時代。ファンを魅了する一貫したキャラクター設定の方法を探ります。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- Section: Viral Strategy --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;section id="viral" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h2 class="text-2xl font-bold text-slate-800 mb-4"&gt;バイラル戦略：アルゴリズムを味方につける&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mb-4"&gt;TikTokは最初の数秒が全て。視聴者の興味を引き、エンゲージメントを高めることで、アルゴリズムがあなたの動画を「おすすめ」に表示してくれます。ここでは、そのための具体的な戦術を学びます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="text-xl font-bold text-slate-800 mb-4 text-center"&gt;視聴者の心を掴む「冒頭3秒」の法則&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="grid md:grid-cols-3 gap-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-amber-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="text-4xl mb-2"&gt;&#x2728;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h4 class="font-bold text-lg mb-2"&gt;視覚的インパクト&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm text-slate-600"&gt;息をのむような絶景、美しいクラブハウス、洗練されたギアのクローズアップなど、一目で「すごい」と思わせる映像で視聴者の指を止めます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-amber-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="text-4xl mb-2"&gt;&#x26A1;&#xFE0F;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h4 class="font-bold text-lg mb-2"&gt;アクションと期待感&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm text-slate-600"&gt;美しいフィニッシュの瞬間や、「この後、衝撃の展開が！」のような問いかけで、「続きが見たい」と思わせる期待感を醸成します。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-amber-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="text-4xl mb-2"&gt;&#x1F92F;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h4 class="font-bold text-lg mb-2"&gt;意外性とギャップ&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm text-slate-600"&gt;「豪華な施設なのに、コースは地獄！？」のような期待と現実のギャップは、コメントやシェアを誘発し、エンゲージメントを高めます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="text-xl font-bold text-slate-800 mb-4 text-center"&gt;戦略的ハッシュタグ・マトリクス&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm text-center text-slate-500 mb-6"&gt;動画の内容に合わせて、これらのカテゴリーからバランス良くハッシュタグを選ぶことで、より多くの視聴者にリーチできます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="p-4 bg-slate-100 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h5 class="font-bold"&gt;広範&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-xs text-slate-600 mt-1"&gt;#ゴルフ #golf&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="p-4 bg-slate-100 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h5 class="font-bold"&gt;コミュニティ&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-xs text-slate-600 mt-1"&gt;#ゴルフ女子 #ゴルフ初心者&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="p-4 bg-slate-100 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h5 class="font-bold"&gt;内容特化&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-xs text-slate-600 mt-1"&gt;#ゴルフ場紹介 #ゴルフ飯&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="p-4 bg-slate-100 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h5 class="font-bold"&gt;ロケーション&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-xs text-slate-600 mt-1"&gt;#千葉ゴルフ #兵庫ゴルフ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="p-4 bg-slate-100 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h5 class="font-bold"&gt;ブランド/ギア&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-xs text-slate-600 mt-1"&gt;#キャロウェイ #テーラーメイド&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- Section: Content --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;section id="content" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h2 class="text-2xl font-bold text-slate-800 mb-4"&gt;コンテンツ制作：物語と映像美&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mb-4"&gt;優れたレビュー動画は、単なる施設案内ではありません。クリエイター自身の体験を通した「物語」です。ここでは、その物語の作り方と、それを支える撮影技術を探求します。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="text-xl font-bold text-slate-800 mb-6 text-center"&gt;Vlog形式レビューの黄金律（インタラクティブ・タイムライン）&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm text-center text-slate-500 mb-6"&gt;各ステップをクリックして、詳細なアクションを確認しましょう。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- The line --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200" style="transform: translateX(-50%);"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- Timeline items --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div id="timeline-container" class="space-y-12"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div id="timeline-details" class="mt-8 bg-white p-6 rounded-lg shadow-inner min-h-[150px] border border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-slate-500"&gt;上のタイムラインのステップをクリックすると、ここに詳細が表示されます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- Section: Persona --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;section id="persona" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h2 class="text-2xl font-bold text-slate-800 mb-4"&gt;ペルソナ設計：共感と憧れのバランス&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mb-4"&gt;TikTokでは「誰が」発信しているかが非常に重要です。自分に合ったペルソナ（キャラクター）を確立し、一貫した視点でレビューを行うことで、視聴者はあなたを信頼し、ファンになります。下のカードをクリックして、各ペルソナの特徴を比較してみましょう。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="grid md:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div id="persona-cards" class="grid grid-cols-2 gap-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div id="persona-details" class="mt-4 bg-white p-6 rounded-lg shadow-inner border border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 id="persona-detail-title" class="font-bold text-lg text-slate-800 mb-2"&gt;ペルソナを選択してください&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p id="persona-detail-description" class="text-sm text-slate-600"&gt;各ペルソナの詳しい説明と、レビューで重視すべきポイントが表示されます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h3 class="text-xl font-bold text-slate-800 mb-4 text-center"&gt;ペルソナ別 評価軸比較&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="chart-container max-w-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;canvas id="personaFocusChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;!-- Section: Builder --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;section id="builder" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="bg-white p-6 rounded-lg shadow-sm mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h2 class="text-2xl font-bold text-slate-800 mb-4"&gt;インタラクティブ台本ビルダー&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mb-4"&gt;ここまでの学びを活かして、あなただけの動画台本の骨子を作成しましょう。作りたい動画のテーマを選ぶと、成功パターンに基づいた台本のテンプレートが自動生成されます。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="text-center mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div id="script-theme-buttons" class="inline-flex rounded-md shadow-sm" role="group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;button type="button" data-theme="resort" class="tab-button px-4 py-2 text-sm font-medium text-slate-900 bg-white border border-slate-200 rounded-l-lg hover:bg-slate-100 focus:z-10 focus:ring-2 focus:ring-amber-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&#x2728; 絶景リゾート編</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;button type="button" data-theme="competitive" class="tab-button px-4 py-2 text-sm font-medium text-slate-900 bg-white border-t border-b border-slate-200 hover:bg-slate-100 focus:z-10 focus:ring-2 focus:ring-amber-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&#x1F525; 共感ガチラウンド編</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;button type="button" data-theme="gourmet" class="tab-button px-4 py-2 text-sm font-medium text-slate-900 bg-white border border-slate-200 rounded-r-md hover:bg-slate-100 focus:z-10 focus:ring-2 focus:ring-amber-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&#x1F37D;&#xFE0F; ゴルフ飯特化編</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div id="script-output" class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 min-h-[300px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="text-center text-slate-500 py-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p&gt;作りたい動画のテーマを選択してください。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>const navLinks = document.querySelectorAll('.nav-link');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>const sections = document.querySelectorAll('.content-section');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>const data = {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>timeline: [</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "0-6秒", title: "導入", details: "「はいどうも、〇〇です！」と元気な挨拶からスタート。今日訪れているゴルフ場の名前と場所を簡潔に伝えます。視聴者が一瞬で動画のテーマを理解できるようにすることが目的です。", icon: "&#x1F44B;" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "7-20秒", title: "展開", details: "クラブハウス、練習場、コースの第一印象など、施設の主要な特徴をテンポ良く見せます。良い点だけでなく、「練習場は少し狭いかも」といった正直な感想も加えることで、レビューの信頼性が増します。", icon: "&#x1F3E2;" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "21-45秒", title: "深掘り", details: "ゴルフ以外のライフスタイル要素（ランチ、お風呂など）や、自身のプレー（ナイスショットとミスショットの両方）を見せることで、コンテンツに深みと共感が生まれます。人間味を見せることがファン獲得の鍵です。", icon: "&#x26F3;&#xFE0F;" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "46-60秒", title: "結び", details: "コースの総評を簡潔にまとめ、「また来たい！」といったポジティブな感想で締めくくります。最後に「皆さんの好きなゴルフ場は？」と問いかけ、コメントを促すことでエンゲージメントを高めます。", icon: "&#x1F44D;" }</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>personas: [</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ id: "joshi", name: "ゴルフ女子", emoji: "&#x1F483;", description: "ファッション性や楽しむ姿を重視。同性からの共感と憧れを集める。レビューでは写真映えするスポットやランチ、ウェアとの相性などが高評価ポイントに。", focus: [9, 6, 8, 4] },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ id: "enjoy", name: "エンジョイ派", emoji: "&#x1F604;", description: "スコアよりも仲間との楽しい時間や景色の美しさを重視。ポジティブな雰囲気が魅力。レビューではコースの美しさ、食事、スタッフの対応などが評価軸。", focus: [5, 9, 9, 3] },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ id: "gachi", name: "ガチ勢", emoji: "&#x1F525;", description: "競技としてゴルフに真剣に取り組む姿を見せる。コースの戦略性や難易度を分析。レビューではコースメンテナンス、グリーンの速さ、練習施設の充実度が重要。", focus: [4, 5, 6, 10] },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ id: "beginner", name: "初心者", emoji: "&#x1F530;", description: "自身の成長記録や、あるあるな失敗談で共感を集める。レビューではコースの広さ（OBの出にくさ）、料金、スタッフの親切さなどが評価ポイントになる。", focus: [7, 8, 4, 6] }</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>scripts: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>resort: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>title: "台本：憧れの絶景リゾート編",</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "0-3秒", hook: "【絶景すぎ注意】ここは本当に日本…？", visual: "高台からコースを見下ろす壮大なワイドショット（スローモーション）。", audio: "感動的なオーケストラ曲。" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "4-15秒", develop: "豪華なロビー、景色抜群の練習場。", visual: "クラブハウスに歩いて入るFPV。練習場で青空に吸い込まれるボール。", audio: "ナレーション「ずっと来たかった天空のリゾート、〇〇へ」" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "16-35秒", deep: "名物ホールでのプレーとリラックス。", visual: "ダイナミックな谷越えショット。カートパスで景色を眺める友人との談笑シーン。", audio: "ナレーション「この景色に向かって打つのは最高！」" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "36-52秒", lifestyle: "極上ランチと夕景。", visual: "テラス席での美しいランチのクローズアップ。夕日に染まるコースを背景にした満足げな表情。", audio: "ナレーション「プレー後のランチも格別…」" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "53-60秒", close: "施設情報と行動喚起。", visual: "施設名、場所、料金のテロップ。最後に笑顔で手を振る。", audio: "ナレーション「特別な一日を過ごしたい人におすすめ！みんなの憧れのゴルフ場も教えてね！」" }</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>]</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>},</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>competitive: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>title: "台本：共感のガチラウンド編",</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "0-3秒", hook: "【悲報】今日、終わりました。", visual: "深いバンカーで頭を抱える姿。", audio: "音声「うわ、最悪だ…」＋絶望的な効果音。" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "4-16秒", develop: "意気込みと厳しい現実。", visual: "朝のクラブハウス前で意気込む→極端に狭いホールのティーショット。", audio: "ナレーション「自己ベスト更新目指します！…のはずだった。」＋緊張感のあるBGM。" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "17-35秒", deep: "天国と地獄。", visual: "完璧なドライバーショットでガッツポーズ→冒頭のバンカーシーンで大苦戦。", audio: "ナレーション「この快感がたまらない！…からの、名物アリ地獄バンカー。」" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "36-45秒", lifestyle: "ラウンド後の静かな反省。", visual: "練習グリーンで黙々とパター練習。少し悔しそうな表情。", audio: "エモーショナルな楽曲。" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "53-60秒", close: "結果とリベンジの誓い。", visual: "スコアカード「92」を映す。コースに向かって一礼。", audio: "ナレーション「結果は悔しい！でも自己ベストは更新！絶対また来る！皆さんの苦手なコースは？」" }</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>]</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>},</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>gourmet: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>title: "台本：発見のテーマ特化編（ゴルフ場ランチ巡り）",</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "0-3秒", hook: "ここ、ゴルフ場です。信じられる？", visual: "熱々の鉄板ハンバーグにナイフを入れるドアップ。溢れ出す肉汁。", audio: "ジュージューというシズル音。" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "4-20秒", develop: "ランチ天国へようこそ。", visual: "メニューを広げて悩む→運ばれてくる複数の名物料理をテンポよく見せる。", audio: "ナレーション「ランチが神レベルと噂の〇〇へ！」＋クッキング番組風BGM。" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "21-35秒", deep: "実食！至福のリアクション。", visual: "各料理を一口食べ、満面の笑みで「おいしい！」とリアクションする様子を連続で見せる。", audio: "ナレーション「このカツ分厚すぎ！」「お刺身プリップリ！」" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "36-45秒", lifestyle: "〆のデザートは別腹。", visual: "美しいデザートを食べるシーン。プレーの疲れが癒される表情。", audio: "ナレーション「デザートまで手抜きなし。染みる～」" },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{ time: "53-60秒", close: "MVP発表と評価。", visual: "一番おすすめのメニューを指差す。ランチ評価を星5段階で表示。", audio: "ナレーション「ここのランチのためだけに来る価値アリ！みんなの“ゴルフ飯”おすすめ教えて！」" }</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>]</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>};</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function updateView(hash) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>let activeHash = hash || window.location.hash || '#home';</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>if (activeHash.length &lt;= 1) activeHash = '#home';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if (link.getAttribute('href') === activeHash) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>link.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>link.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>sections.forEach(section =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if ('#' + section.id === activeHash) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>section.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>section.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>// Initialize components if they are in the active view</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>if (activeHash === '#home' &amp;&amp; !window.successChart) initSuccessChart();</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>if (activeHash === '#content' &amp;&amp; !window.timelineInitialized) initTimeline();</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>if (activeHash === '#persona' &amp;&amp; !window.personaInitialized) initPersonaSection();</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>if (activeHash === '#builder' &amp;&amp; !window.builderInitialized) initBuilder();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>link.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const hash = e.target.getAttribute('href');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>history.pushState(null, null, hash);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>updateView(hash);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>window.addEventListener('popstate', () =&gt; updateView());</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function initSuccessChart() {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const ctx = document.getElementById('successComponentsChart').getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>window.successChart = new Chart(ctx, {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>type: 'doughnut',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>labels: ['物語 (コンテンツ)', 'ペルソナ (共感)', 'フック (冒頭3秒)', '戦略 (アルゴリズム)'],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>label: '成功の構成要素',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>data: [45, 30, 15, 10],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>backgroundColor: ['#f59e0b', '#fbbf24', '#fcd34d', '#fef3c7'],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>borderColor: '#f8fafc',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>borderWidth: 4</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>},</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>legend: { position: 'bottom' },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>tooltip: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>callbacks: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>label: function(context) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>let label = context.label || '';</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if (label) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>label += ': ';</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if (context.parsed !== null) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>label += context.parsed + '%';</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>return label;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function initTimeline() {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const container = document.getElementById('timeline-container');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const detailsContainer = document.getElementById('timeline-details');</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>data.timeline.forEach((item, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const isLeft = index % 2 === 0;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const timelineItem = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>timelineItem.className = `timeline-item relative flex items-center ${isLeft ? 'justify-start' : 'justify-end'}`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>timelineItem.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="w-5/12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div data-index="${index}" class="timeline-card cursor-pointer p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ${isLeft ? 'text-right' : 'text-left'}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="font-bold text-amber-600"&gt;${item.time}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h5 class="font-bold text-slate-800"&gt;${item.title}&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="absolute left-1/2 w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center text-white font-bold" style="transform: translateX(-50%);"&gt;${item.icon}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>container.appendChild(timelineItem);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>container.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const card = e.target.closest('.timeline-card');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if (card) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const index = card.dataset.index;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const item = data.timeline[index];</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>detailsContainer.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;h4 class="font-bold text-lg text-slate-800 mb-2"&gt;${item.title} (${item.time})&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-slate-600"&gt;${item.details}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>window.timelineInitialized = true;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>let personaChart;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function initPersonaSection() {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const cardsContainer = document.getElementById('persona-cards');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>data.personas.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>card.className = 'persona-card cursor-pointer p-4 bg-white rounded-lg shadow-sm text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300';</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>card.dataset.id = p.id;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>card.innerHTML = `&lt;div class="text-4xl mb-2"&gt;${p.emoji}&lt;/div&gt;&lt;h4 class="font-bold text-slate-800"&gt;${p.name}&lt;/h4&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>cardsContainer.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>cardsContainer.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const card = e.target.closest('.persona-card');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if(card) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const personaId = card.dataset.id;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const personaData = data.personas.find(p =&gt; p.id === personaId);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>if(personaData) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>updatePersonaDetails(personaData);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>updatePersonaChart(personaData);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const ctx = document.getElementById('personaFocusChart').getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>personaChart = new Chart(ctx, {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>type: 'bar',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>labels: ['ファッション性', '楽しさ・雰囲気', '食事・施設', 'スコア・戦略性'],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>label: '評価軸',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>data: [0,0,0,0],</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>backgroundColor: '#fcd34d',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>borderColor: '#f59e0b',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>borderWidth: 1</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>},</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>indexAxis: 'y',</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>x: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>beginAtZero: true,</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>max: 10</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>},</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>legend: { display: false },</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>title: {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>display: true,</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>text: 'ペルソナを選択して比較'</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>}</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>window.personaInitialized = true;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function updatePersonaDetails(persona) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>document.getElementById('persona-detail-title').textContent = `${persona.emoji} ${persona.name}`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>document.getElementById('persona-detail-description').textContent = persona.description;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function updatePersonaChart(persona) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>personaChart.data.datasets[0].data = persona.focus;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>personaChart.options.plugins.title.text = `${persona.name}の評価軸`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>personaChart.update();</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function initBuilder() {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const buttons = document.querySelectorAll('#script-theme-buttons button');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const output = document.getElementById('script-output');</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>buttons.forEach(button =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>button.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>buttons.forEach(btn =&gt; btn.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>button.classList.add('active');</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const theme = button.dataset.theme;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const scriptData = data.scripts[theme];</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>renderScript(scriptData);</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>window.builderInitialized = true;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>function renderScript(script) {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>const output = document.getElementById('script-output');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>let html = `&lt;h3 class="text-xl font-bold text-slate-800 mb-6"&gt;${script.title}&lt;/h3&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>html += '&lt;div class="space-y-4"&gt;';</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>script.steps.forEach(step =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const key = Object.keys(step).find(k =&gt; k !== 'time');</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>const value = step[key];</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>html += `</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;div class="p-4 border-l-4 border-amber-400 bg-slate-50 rounded-r-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="text-sm font-bold text-amber-700"&gt;${step.time}：${key.charAt(0).toUpperCase() + key.slice(1)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mt-2 text-slate-800 font-medium"&gt;&lt;strong&gt;フック/テロップ:&lt;/strong&gt; ${value}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mt-1 text-sm text-slate-600"&gt;&lt;strong&gt;映像イメージ:&lt;/strong&gt; ${step.visual}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;p class="mt-1 text-sm text-slate-600"&gt;&lt;strong&gt;音声イメージ:&lt;/strong&gt; ${step.audio}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>});</p>
+<p class="p2"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>html += '&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>output.innerHTML = html;</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>// Initial load</p>
+<p class="p1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>updateView();</p>
+<p class="p1">});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+<p class="p2"><br></p>
+</body>
+</html>
